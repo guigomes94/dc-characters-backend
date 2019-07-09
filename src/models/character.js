@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 
-const schema = new Schema({
+const CharacterSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -48,6 +48,6 @@ const schema = new Schema({
 
 });
 
-ProductSchema.plugin(mongoosePaginate);
+CharacterSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('Character', schema);
+module.exports = mongoose.model('Character', CharacterSchema);
