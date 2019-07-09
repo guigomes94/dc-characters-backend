@@ -2,7 +2,8 @@ const repository = require('../repository/character');
 
 exports.get = async(req, res, next) => {
     try {
-        let data = await repository.get();
+        const { page = 1} = req.query;
+        let data = await repository.get(page);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Fail' });

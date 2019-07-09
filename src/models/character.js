@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -46,5 +47,7 @@ const schema = new Schema({
     }
 
 });
+
+ProductSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Character', schema);
