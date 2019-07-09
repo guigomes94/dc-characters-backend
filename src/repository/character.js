@@ -3,7 +3,7 @@ const Character = mongoose.model('Character');
 
 exports.get = async() => { 
         const res = await Character
-            .get({}, 'name real_name gender alignment height weight description skills first_appeared');
+            .find({}, 'name real_name gender alignment height weight description skills first_appeared');
         return res;
     },
 
