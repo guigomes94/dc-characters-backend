@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Character = mongoose.model('Character');
 
-exports.get = async(page) => { 
+exports.get = async() => { 
         const res = await Character
-            .paginate({}, { page, limit: 8});
+            .get({}, 'name real_name gender alignment height weight description skills first_appeared');
         return res;
     },
 
