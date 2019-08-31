@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -9,8 +11,8 @@ const router = express.Router();
 
 // connetion db
 mongoose.connect(
-    'mongodb+srv://script_project:script@characters-n4uut.mongodb.net/test?retryWrites=true&w=majority', 
-    { useNewUrlParser: true});
+    process.env.MONGO_URL, 
+    { useNewUrlParser: true });
 
 // Load Model
 const Character = require('./models/character');
