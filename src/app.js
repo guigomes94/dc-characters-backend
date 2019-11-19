@@ -1,25 +1,27 @@
-require('dotenv').config();
+import "dotenv/config";
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import cors from "cors";
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-mongoose.set('useCreateIndex', true);
-const cors = require('cors');
+mongoose.set("useCreateIndex", true);
 
 const app = express();
 const router = express.Router();
 
-// connetion db
-mongoose.connect(
-    process.env.MONGO_URL, 
-    { useNewUrlParser: true });
+// Connecting DB
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // Load Model
-const Character = require('./models/character');
+import Character from "./models/character";
 
 //Load Routes
-const indexRoutes = require('./routes/index');
-const characterRoutes = require('./routes/characters');
+
+import indexRoutes from "./routes/index";
+import characterRoutes from "./routes/characters";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //cors
 app.use(cors());
 
-app.use('/', indexRoutes);
-app.use('/characters', characterRoutes);
+app.use("/", indexRoutes);
+app.use("/characters", characterRoutes);
 
 module.exports = app;

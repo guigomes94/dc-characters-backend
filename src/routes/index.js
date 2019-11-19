@@ -1,11 +1,12 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from "express";
 
-router.get('/', (req, res, next) => {
-    res.status(200).send({
-        title: "DC Node API",
-        version: "0.0.2"
-    });
+const router = new Router();
+
+router.get("/", (req, res, next) => {
+  res.status(200).send({
+    title: "DC Node API",
+    version: "0.0.2"
+  });
 });
 
 module.exports = router;
