@@ -2,12 +2,10 @@ import "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import cors from "cors";
 
 mongoose.set("useCreateIndex", true);
 
 const app = express();
-const router = express.Router();
 
 // Connecting DB
 mongoose.connect(process.env.MONGO_URL, {
@@ -27,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //cors
+const cors = require("cors");
 app.use(cors());
 
 app.use("/", indexRoutes);
