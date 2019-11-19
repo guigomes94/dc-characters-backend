@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import cors from "cors";
 
 mongoose.set("useCreateIndex", true);
 
@@ -25,7 +26,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //cors
-const cors = require("cors");
 app.use(cors());
 
 app.use("/", indexRoutes);
