@@ -1,8 +1,8 @@
-import app from "../src/app";
-import debug from "debug";
-import http from "http";
+const app = require("../src/app");
+const debug = require("debug")("balta:server");
+const http = require("http");
 
-const port = normalizePort(process.env.PORT || "3003");
+const port = normalizePort(process.env.PORT || "3001");
 app.set("port", port);
 
 const server = http.createServer(app);
@@ -10,6 +10,8 @@ const server = http.createServer(app);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
+
+console.log("API rodando na porta " + port);
 
 function normalizePort(value) {
   const port = parseInt(value, 10);
