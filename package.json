@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./bin/server.js"
+    "start": "nodemon ./bin/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "keywords": [],
   "author": "",
