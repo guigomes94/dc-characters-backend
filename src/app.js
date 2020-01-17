@@ -10,7 +10,7 @@ const app = express();
 const router = express.Router();
 
 // connetion db
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Load Model
 const Character = require("./models/character");
